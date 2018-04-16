@@ -1,8 +1,9 @@
 # Microsoft Graph: Microsoft Graph Capabilities - 400 Level
-----------------
-This folder contains demos used in the 
+
+This folder contains demos used in the module presentation
 
 ## Lab
+
 In this lab, you will walk through building different types of applications leveraging the Microsoft Graph using the Graph SDK and Microsoft Authentication Library (MSAL).
 
 - [Lab Manual](../Lab.md)
@@ -16,6 +17,7 @@ In this lab, you will walk through building different types of applications leve
 - [Creating batch requests with Microsoft Graph](./05-batch)
 
 ## Contributors
+
 |        Roles         |                        Author(s)                        |
 | -------------------- | ------------------------------------------------------- |
 | Lab Manuals / Slides | Andrew Connell (Microsoft MVP, Voitanos) @andrewconnell |
@@ -28,4 +30,5 @@ In this lab, you will walk through building different types of applications leve
 | 1.0     |      | Initial release |
 
 ## Disclaimer
+
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
