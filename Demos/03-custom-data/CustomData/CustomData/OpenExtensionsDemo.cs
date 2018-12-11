@@ -1,8 +1,6 @@
 ﻿using Microsoft.Identity.Client;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -31,18 +29,11 @@ namespace CustomData
                 await UpdateRoamingProfileInformationAsync(client);
                 await DeleteRoamingProfileInformationAsync(client);
             }
-            
         }
         async Task AddRoamingProfileInformationAsync(HttpClient client)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, "me/extensions");            
-            request.Content = new StringContent(@"{
-                  '@odata.type': 'microsoft.graph.openTypeExtension',
-                  'extensionName': 'com.contoso.roamingSettings',
-                  'theme': 'dark',
-                  'color': 'purple',
-                  'lang': 'Japanese'
-                }", Encoding.UTF8, "application/json");
+            var request = new HttpRequestMessage(HttpMethod.Post, "me/extensions");
+            request.Content = new StringContent("{'@odata.type':'microsoft.graph.openTypeExtension','extensionName':'com.contoso.roamingSettings','theme':'dark','color':'purple','lang':'Japanese'}", Encoding.UTF8, "application/json");
             var response = await client.SendAsync(request);
             response.WriteCodeAndReasonToConsole();
             Console.WriteLine(JValue.Parse(await response.Content.ReadAsStringAsync()).ToString(Newtonsoft.Json.Formatting.Indented));
@@ -61,11 +52,7 @@ namespace CustomData
         async Task UpdateRoamingProfileInformationAsync(HttpClient client)
         {
             var request = new HttpRequestMessage(new HttpMethod("PATCH"), "me/extensions/com.contoso.roamingSettings");
-            request.Content = new StringContent(@"{
-                    'theme': 'light',
-                    'color': 'blue',
-                    'lang': 'English'
-                }", Encoding.UTF8, "application/json");
+            request.Content = new StringContent("{'theme':'light','color':'blue','lang':'English'}", Encoding.UTF8, "application/json");
             var response = await client.SendAsync(request);
             response.WriteCodeAndReasonToConsole();
 

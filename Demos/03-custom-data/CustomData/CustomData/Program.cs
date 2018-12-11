@@ -12,7 +12,6 @@ namespace CustomData
 
         static async Task RunAsync(string[] args)
         {
-
             var clientId = ConfigurationManager.AppSettings["ida:clientId"];
 
             var openExtensionsDemo = new OpenExtensionsDemo();
@@ -20,12 +19,6 @@ namespace CustomData
 
             var schemaExtensionDemo = new SchemaExtensionsDemo();
             await schemaExtensionDemo.RunAsync(clientId);
-
-            System.Console.WriteLine("Press ENTER to continue.");
-            System.Console.ReadLine();
         }
-
-
-
     }
 }

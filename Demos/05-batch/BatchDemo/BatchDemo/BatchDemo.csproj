@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6651DB51-BEBE-4D1E-B215-D38968220C61}</ProjectGuid>
+    <ProjectGuid>{52192F06-BAC6-4E3F-9BFD-533CF9FE31E4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CustomData</RootNamespace>
-    <AssemblyName>CustomData</AssemblyName>
+    <RootNamespace>BatchDemo</RootNamespace>
+    <AssemblyName>BatchDemo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,11 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatchDemo.cs" />
     <Compile Include="HttpResponseMessageExtension.cs" />
-    <Compile Include="OpenExtensionsDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchemaExtensionsDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

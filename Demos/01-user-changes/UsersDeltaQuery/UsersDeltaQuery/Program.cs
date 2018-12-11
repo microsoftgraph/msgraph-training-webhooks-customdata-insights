@@ -53,7 +53,6 @@ namespace UsersDeltaQuery
             //Display users and get the delta link
             var deltaLink = await DisplayChangedUsersAndGetDeltaLink(userPage);
 
-
             Console.WriteLine("=== Adding user");
 
             //Create a new user
@@ -61,9 +60,9 @@ namespace UsersDeltaQuery
             {
                 DisplayName = "UsersDeltaQuery Demo User",
                 GivenName = "UsersDeltaQueryDemo",
-                Surname = "User",
-                MailNickname = "UsersDeltaQueryDemoUser",
-                UserPrincipalName = Guid.NewGuid().ToString() + "@" + tenantId,
+                 Surname = "User",
+                 MailNickname = "UsersDeltaQueryDemoUser",
+                 UserPrincipalName = Guid.NewGuid().ToString() + "@" + tenantId,
                 PasswordProfile = new PasswordProfile() { ForceChangePasswordNextSignIn = true, Password = "D3m0p@55w0rd!" },
                 AccountEnabled = true
             };
@@ -71,7 +70,7 @@ namespace UsersDeltaQuery
 
             Console.WriteLine("Press any key to execute delta query.");
             Console.ReadKey();
-            Console.WriteLine("=== Getting delta users");
+            Console.WriteLine("=== Getting users");
 
             //Query using the delta link to see the new user
             userPage.InitializeNextPageRequest(graphClient, deltaLink);
@@ -79,7 +78,7 @@ namespace UsersDeltaQuery
 
             //Display again... notice that only the added user is returned
             var newDeltaLink = await DisplayChangedUsersAndGetDeltaLink(userPage);
-            while (deltaLink.Equals(newDeltaLink))
+            while(deltaLink.Equals(newDeltaLink))
             {
                 //If the two are equal, then we didn't receive changes yet
                 //Query using the delta link to see the new user
@@ -100,8 +99,8 @@ namespace UsersDeltaQuery
             //Iterate through the users
             foreach (var user in userPage)
             {
-                if (user.UserPrincipalName != null)
-                    Console.WriteLine(user.UserPrincipalName.ToLower().Replace("m365x287476", "msgraphdemo") + "\t\t" + user.DisplayName);
+                if(user.UserPrincipalName != null)
+                Console.WriteLine(user.UserPrincipalName.ToLower().Replace("m365x287476","msgraphdemo") + "\t\t" + user.DisplayName);
             }
             while (userPage.NextPageRequest != null)
             {
@@ -124,3 +123,5 @@ namespace UsersDeltaQuery
         }
     }
 }
+
+

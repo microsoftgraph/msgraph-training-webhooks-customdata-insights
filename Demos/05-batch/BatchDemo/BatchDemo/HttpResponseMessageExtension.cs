@@ -7,6 +7,8 @@ namespace Batch
     {
         public static void WriteCodeAndReasonToConsole(this HttpResponseMessage response)
         {
+
+
             var defaultBGColor = Console.BackgroundColor;
             var defaultFGColor = Console.ForegroundColor;
 
@@ -27,6 +29,6 @@ namespace Batch
             Console.BackgroundColor = defaultBGColor;
             Console.ForegroundColor = defaultFGColor;
             Console.WriteLine();
-        }        
+        }
     }
 }

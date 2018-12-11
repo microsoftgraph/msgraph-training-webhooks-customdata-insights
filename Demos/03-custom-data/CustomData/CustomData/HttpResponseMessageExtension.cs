@@ -30,6 +30,5 @@ namespace CustomData
             Console.ForegroundColor = defaultFGColor;
             Console.WriteLine();
         }
-        
     }
 }
