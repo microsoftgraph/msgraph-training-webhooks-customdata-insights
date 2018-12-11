@@ -48,7 +48,7 @@ namespace WebApp
                     ClientId = clientId,
                     Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
                     RedirectUri = redirectUri,
-                    Scope = "openid profile offline_access Mail.Read email Mail.Send",
+                    Scope = "openid email profile offline_access Mail.Read Mail.Send",
                     PostLogoutRedirectUri = redirectUri,
                     TokenValidationParameters = new TokenValidationParameters
                     {

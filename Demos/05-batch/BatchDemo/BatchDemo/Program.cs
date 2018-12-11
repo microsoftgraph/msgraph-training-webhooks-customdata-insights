@@ -17,7 +17,7 @@ namespace Batch
 
             var batchDemo = new BatchDemo();
             await batchDemo.RunAsync(clientId);
-            
+
             System.Console.WriteLine("Press ENTER to continue.");
             System.Console.ReadLine();
         }

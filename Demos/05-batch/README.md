@@ -24,7 +24,7 @@ This demo requires an Office 365 user.
 
 1. Select the Browse tab and ensure the **Include pre-release** checkbox is checked.
 
-1. Search for **Microsoft.Identity.Client** and select **Install**.
+1. Search for **Microsoft.Identity.Client** version `1.1.4-preview00002` and select **Install**.
 
 1. Select the Browse tab and search for **Newtonsoft.Json**. Select **Install**.
 
@@ -144,7 +144,7 @@ This demo requires an Office 365 user.
     using System;
     using System.Net.Http;
 
-    namespace CustomData
+    namespace Batch
     {
         public static class HttpResponseMessageExtension
         {

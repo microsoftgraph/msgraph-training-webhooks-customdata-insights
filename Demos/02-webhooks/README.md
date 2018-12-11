@@ -777,6 +777,8 @@ The application uses several new model classes for (de)serialization and for Raz
 
 1. Choose your newly created web app and select **OK**.
 
+>Note: Sometimes a version of local script change and one of the versions of the referenced file is not available.  If a version of a file from the `Scripts` folder is missing please remove it's reference.
+
 1. Microsoft Azure web apps makes it easy to debug a web application in the cloud as if it were running locally. In the Publish screen, click **Settings**, then click the **Settings** tab, and change the configuration from **Release** to **Debug**.
 
 1. Select **Save**.

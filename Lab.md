@@ -4,11 +4,11 @@ In this lab, you will walk through capabilities of the Microsoft Graph to build 
 
 ## Table of Contents
 
-1. [Microsoft Graph delta queries](#1._Microsoft_Graph_delta_queries)
-1. [Microsoft Graph webhooks](#2._Microsoft_Graph_webhooks)
-1. [Adding custom data to resources in Microsoft Graph](#3._Adding_custom_data_to_resources_in_Microsoft_Graph])
-1. [Developing Insights with Microsoft Graph](#4._Developing_Insights_with_Microsoft_Graph)
-1. [Creating batch requests with Microsoft Graph](#5._Creating_batch_requests_with_Microsoft_Graph)
+1. [Microsoft Graph delta queries](#1-microsoft-graph-delta-queries)
+1. [Microsoft Graph webhooks](#2-microsoft-graph-webhooks)
+1. [Adding custom data to resources in Microsoft Graph](#3-adding-custom-data-to-resources-in-microsoft-graph])
+1. [Developing Insights with Microsoft Graph](#4-developing-insights-with-microsoft-graph)
+1. [Creating batch requests with Microsoft Graph](#5-creating-batch-requests-with-microsoft-graph)
 
 ## Prerequisites
 
@@ -69,12 +69,16 @@ Click the **Browse** tab in the NuGet Package Manager window. Ensure the **Inclu
 
 **Right-click** the References node in the project and choose **Add Reference**. **Add** a reference for `System.Configuration`.
 
-**Edit** the `App.config` file and provide the settings from your registered application.
+**Edit** the `App.config` file and provide the settings from your registered application inside the `configuration` node.
 
 ````xml
-<add key="clientId" value="" />         <!-- ex: c7d838fa-8885-442d-889c-7d25567dd2c1 -->
-<add key="clientSecret" value="" />     <!-- ex: ehY7gK57f!29 -->
-<add key="tenantId" value="" />         <!-- ex: contoso.onmicrosoft.com -->
+<appSettings>
+    <add key="clientId" value="" />         <!-- ex: c7d838fa-8885-442d-889c-7d25567dd2c1 -->
+    <add key="clientSecret" value="" />     <!-- ex: ehY7gK57f!29 -->
+    <add key="tenantId" value="" />         <!-- ex: contoso.onmicrosoft.com -->
+    <add key="authorityFormat" value="https://login.microsoftonline.com/{0}/v2.0" />
+    <add key="replyUri" value="https://localhost" />
+</appSettings>
 ````
 
 **Edit** the `Program.cs` file and replace its contents.
@@ -234,7 +238,7 @@ This lab will walk you through creating an application that uses OAuth with ASP.
 
 ### Create the Azure Web App
 
-Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Microsoft Azure Web App or another web server. This lab uses Microsoft Azure. In the Azure portal, **create** a new Web App by clicking **+ Create a resource** then **Web + Mobile** then **Web App**. Provide a unique name, choose the subscription, and provide a resource group. Choose **Windows** as the OS type. **Edit** the app service plan. Provide the name, location, and change the Pricing tier to **Free**. Click **OK**, then **Create**.
+Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Microsoft Azure Web App or another web server. This lab uses Microsoft Azure. In the Azure portal, **create** a new Web App by clicking **+ Create a resource** then **Web** then **Web App**. Provide a unique name, choose the subscription, and provide a resource group. Choose **Windows** as the OS type. **Select** the app service plan. Create a new plan and provide the name, location, and change the Pricing tier to **Free**. Click **OK**, then **Create**.
 
 Once the web app is created, copy the URL for later use.
 
@@ -977,7 +981,9 @@ The `Subscription` controller was created but does not yet have a view associate
 
 **Right-click** the project node in Visual Studio, choose **Publish**. Choose **Microsoft Azure App Service**, select **Select Existing**, and choose **OK**. Choose your newly created web app and click **OK**.
 
-Azure Web Apps makes it easy to debug a web application in the cloud as if it were running locally. In the Publish screen, click **Settings**, then click the **Settings** tab, and change the Configuration from Release to **Debug**. Click **Save**. In the Publish screen, click **Publish**.
+>Note: Sometimes a version of local script change and one of the versions of the referenced file is not available.  If a version of a file from the `Scripts` folder is missing please remove it's reference.
+
+Azure Web Apps makes it easy to debug a web application in the cloud as if it were running locally. In the Publish screen, click **Configure**, then click the **Settings** tab, and change the Configuration from Release to **Debug**. Click **Save**. In the Publish screen, click **Publish**.
 
 In the resulting browser window, click the **Sign in with Microsoft** link in the top right of the window. When prompted, grant consent to the requested permissions.
 
@@ -1014,7 +1020,7 @@ Visit the [Application Registration Portal](https://apps.dev.microsoft.com) and 
 
 ### Create the application
 
-In Visual Studio 2017, **create** a new project using the **Console App (.NET Framework)** project template. **Right-click** the project node and choose **Manage NuGet packages**. **Click** the Browse tab, ensure the **Include pre-release** checkbox is checked, and search for **Microsoft.Identity.Client**. Click **Install**. **Click** the Browse tab and search for **Newtonsoft.Json**. Click **Install**.
+In Visual Studio 2017, **create** a new project using the **Console App (.NET Framework)** project template. **Right-click** the project node and choose **Manage NuGet packages**. **Click** the Browse tab, ensure the **Include pre-release** checkbox is checked, and search for **Microsoft.Identity.Client**. Make sure to select version 1.1.4-preview00002, click **Install**. **Click** the Browse tab and search for **Newtonsoft.Json**. Click **Install**.
 
 **Right-click** the References node in the project and choose **Add Reference**. Add a reference for **System.Configuration**.
 
@@ -1065,8 +1071,6 @@ The first demonstration will use open extensions with Microsoft Graph.
 using Microsoft.Identity.Client;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -1377,7 +1381,7 @@ The application will use OpenId Connect with the v2.0 endpoint as a starting poi
 git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-v2.git
 ````
 
-**Open** the project with Visual Studio 2017.
+**Open** the project with Visual Studio 2017. Right-Click on the project folder and select `Manage Nu-get Packages` and restore all the missing packages. Reload the project and verify that any missing script versions from the `Scripts` folder have been removed.
 
 **Edit** the `web.config` file with your app's coordinates.
 
@@ -1996,7 +2000,7 @@ Visit the [Application Registration Portal](https://apps.dev.microsoft.com) and 
 
 ### Create the insights application
 
-In Visual Studio 2017, **create** a new project using the **Console App (.NET Framework)** project template. **Right-click** the project node and choose **Manage NuGet packages**. **Click** the Browse tab, ensure the **Include pre-release** checkbox is checked, and search for **Microsoft.Identity.Client**. Click **Install**. **Click** the Browse tab and search for **Newtonsoft.Json**. Click **Install**.
+In Visual Studio 2017, **create** a new project using the **Console App (.NET Framework)** project template. **Right-click** the project node and choose **Manage NuGet packages**. **Click** the Browse tab, ensure the **Include pre-release** checkbox is checked, and search for **Microsoft.Identity.Client**. Make sure to select version 1.1.4-preview00002, click **Install**. **Click** the Browse tab and search for **Newtonsoft.Json**. Click **Install**.
 
 **Right-click** the References node in the project and choose **Add Reference**. Add a reference for **System.Configuration**.
 
@@ -2112,7 +2116,7 @@ The `BatchDemo` class uses an extension method to write the HTTP status code and
 using System;
 using System.Net.Http;
 
-namespace CustomData
+namespace Batch
 {
     public static class HttpResponseMessageExtension
     {
