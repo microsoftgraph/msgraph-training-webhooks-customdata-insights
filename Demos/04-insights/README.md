@@ -24,7 +24,7 @@ This lab will show how to use the Insights resource with Microsoft Graph.
     git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-v2.git
     ```
 
-1. Open the project with **Visual Studio 2017**.
+1. Open the project with **Visual Studio 2017**. Right-Click on the project folder and select `Manage Nu-get Packages` and restore all the missing packages. Reload the project and verify that any missing script versions from the `Scripts` folder have been removed.
 
 1. Edit the **web.config** file with your app's coordinates. Find the appSettings key `ida:ClientId` and provide the app ID from your app registration. Find the appSettings key `ida:ClientSecret` and provide the value from the app secret generated in the previous step.
 

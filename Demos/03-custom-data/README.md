@@ -24,7 +24,7 @@ This demo requires an Office 365 administrative user.
 
 1. Right-click the project node and choose **Manage NuGet packages**.
 
-1. Select the Browse tab. Ensure the **Include pre-release** checkbox is checked, and search for **Microsoft.Identity.Client** and select **Install**.
+1. Select the Browse tab. Ensure the **Include pre-release** checkbox is checked, and search for **Microsoft.Identity.Client** version `1.1.4-preview00002` and select **Install**.
 
 1. Select the **Browse** tab and search for **Newtonsoft.Json**. Select **Install**.
 
@@ -77,8 +77,6 @@ This demo requires an Office 365 administrative user.
     using Microsoft.Identity.Client;
     using Newtonsoft.Json.Linq;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;

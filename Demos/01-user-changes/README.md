@@ -54,18 +54,22 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
 1. Search for and install the following NuGet packages:
     - `Microsoft.Graph`
-    - `Microsoft.Identity.Client`
+    - `Microsoft.Identity.Client version 1.1.4-preview00002`
 
 1. Right-click the **References** node in the project and choose **Add Reference**.
 
 1. Add a reference for `System.Configuration`.
 
-1. Edit the **App.config** file and provide the settings from your registered application.
+1. **Edit** the `App.config` file and provide the settings from your registered application inside the `configuration` node.
 
     ```xml
-    <add key="clientId" value="" />         <!-- ex: c7d838fa-8885-442d-889c-7d25567dd2c1 -->
-    <add key="clientSecret" value="" />     <!-- ex: ehY7gK57f!29 -->
-    <add key="tenantId" value="" />         <!-- ex: contoso.onmicrosoft.com -->
+    <appSettings>
+        <add key="clientId" value="" />         <!-- ex: c7d838fa-8885-442d-889c-7d25567dd2c1 -->
+        <add key="clientSecret" value="" />     <!-- ex: ehY7gK57f!29 -->
+        <add key="tenantId" value="" />         <!-- ex: contoso.onmicrosoft.com -->
+        <add key="authorityFormat" value="https://login.microsoftonline.com/{0}/v2.0" />
+        <add key="replyUri" value="https://localhost" />
+    </appSettings>
     ```
 
 1. Edit the **Program.cs** file and replace its contents.

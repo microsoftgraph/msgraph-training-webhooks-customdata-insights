@@ -52,9 +52,6 @@ namespace CustomData
 
                 await DeleteGroupAndExtensionAsync(client, schemaId, groupId);
             }
-
-
-
         }
 
         //void LaunchBrowserWaitForAdminConsent(string clientId)
@@ -84,27 +81,7 @@ namespace CustomData
         async Task<string> RegisterSchemaExtensionAsync(HttpClient client)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, "schemaExtensions");
-            request.Content = new StringContent(@"{
-                  'id': 'courses',
-                  'description': 'Graph Learn training courses extensions',
-                  'targetTypes': [
-                    'Group'
-                  ],
-                  'properties': [
-                    {
-                      'name': 'courseId',
-                      'type': 'Integer'
-                    },
-                    {
-                      'name': 'courseName',
-                      'type': 'String'
-                    },
-                    {
-                      'name': 'courseType',
-                      'type': 'String'
-                    }
-                  ]
-                }", Encoding.UTF8, "application/json");
+            request.Content = new StringContent("{'id':'courses','description':'Graph Learn training courses extensions','targetTypes':['Group'],'properties':[{'name':'courseId','type':'Integer'},{'name':'courseName','type':'String'},{'name':'courseType','type':'String'} ]}", Encoding.UTF8, "application/json");
 
             var response = await client.SendAsync(request);
             response.WriteCodeAndReasonToConsole();
@@ -119,25 +96,7 @@ namespace CustomData
         async Task<string> CreateGroupWithExtendedDataAsync(HttpClient client, string schemaId)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, "groups");
-            string json = @"{
-                  'displayName': 'New Managers 2017',
-                  'description': 'New Managers training course 2017',
-                  'groupTypes': [
-                    'Unified'
-                  ],
-                  'mailEnabled': true,
-                  'mailNickName': 'newManagers" + Guid.NewGuid().ToString().Substring(8) + @"',
-                  'securityEnabled': false,
-                  '" + schemaId + @"': {
-                    'courseId': 123,
-                    'courseName': 'New Managers',
-                    'courseType': 'Online'
-                  }
-                }";
-
-            request.Content = new StringContent(json,
-                Encoding.UTF8,
-                "application/json");
+            request.Content = new StringContent("{'displayName':'New Managers 2017','description':'New Managers training course 2017','groupTypes':['Unified'],'mailEnabled':true, 'mailNickName':'newManagers" + Guid.NewGuid().ToString().Substring(8) + "','securityEnabled':false,'" + schemaId + "':{'courseId':123,'courseName':'New Managers','courseType':'Online'}}", Encoding.UTF8, "application/json");
 
             var response = await client.SendAsync(request);
             response.WriteCodeAndReasonToConsole();
@@ -152,17 +111,7 @@ namespace CustomData
         async Task UpdateCustomDataInGroupAsync(HttpClient client, string groupId, string schemaId)
         {
             var request = new HttpRequestMessage(new HttpMethod("PATCH"), "groups/" + groupId);
-            string json = @"{
-                  '" + schemaId + @"': {
-                    'courseId': '123',
-                    'courseName': 'New Managers',
-                    'courseType': 'Online'
-                  }
-                }";
-            request.Content = new StringContent(
-                json,
-                Encoding.UTF8,
-                "application/json");
+            request.Content = new StringContent("{'" + schemaId + "':{'courseId':'123','courseName':'New Managers','courseType':'Online'}}", Encoding.UTF8, "application/json");
 
             var response = await client.SendAsync(request);
             response.WriteCodeAndReasonToConsole();
@@ -171,9 +120,7 @@ namespace CustomData
 
         async Task GetGroupAndExtensionDataAsync(HttpClient client, string schemaId)
         {
-            var request = new HttpRequestMessage(
-                HttpMethod.Get,
-                "groups?$filter=" + schemaId + "/courseId eq '123'&$select=displayName,id,description," + schemaId);
+            var request = new HttpRequestMessage(HttpMethod.Get, "groups?$filter=" + schemaId + "/courseId eq '123'&$select=displayName,id,description," + schemaId);
 
             var response = await client.SendAsync(request);
             response.WriteCodeAndReasonToConsole();
