@@ -8,17 +8,41 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
 ## Register and grant consent to the application
 
-1. Visit the [Application Registration Portal](https://apps.dev.microsoft.com). Register a new converged application and copy the generated app ID for later use.
+1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **Work or School Account**.
 
-1. You will need to configure the application. Generate a new application password secret. Copy it for later use.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-1. Add a native application platform and copy the generated URL for later use.
+    ![A screenshot of the App registrations ](../../Images/aad-portal-app-registrations.png)
 
-1. Add an application permission for the `User.ReadWrite.All` scope.
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-1. Save your changes.
+    - Set a preferred **Name** e.g. `DeltaDemo`.
+    - Set **Supported account types** to **Accounts in any organizational directory**.    
 
-    ![Screenshot of Microsoft Graph permissions.](../../Images/01.png)
+    ![A screenshot of the Register an application page](../../Images/aad-register-an-app.png)
+
+1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
+
+    ![A screenshot of the Add a client secret dialog](../../Images/aad-new-client-secret.png)
+
+1. Copy the client secret value before you leave this page. You will need it in the next step.
+
+    > [!IMPORTANT]
+    > This client secret is never shown again, so make sure you copy it now.
+
+    ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)
+
+1. From the **Manage** page, select **API permissions** > **Add a permission**.
+
+    ![A screenshot of Select API Permissions](../../Images/aad-api-permissions.PNG)
+
+1. Choose **Microsoft API** > **Microsoft Graph**.
+
+    ![A screenshot of Request API permissions](../../Images/aad-request-api-permissions.PNG)
+
+1. Choose **Delegated permissions**. In the search box, type **User.ReadWrite.All** and select the first option from the list. Select **Add permissions**.
+
+    ![A screenshot of Delegated permissions](../../Images/aad-delegated-permissions.PNG)
 
 1. The application requests an application permission with the `User.ReadWrite.All` scope. This permission requires administrative consent. Copy the following URL and replace the `{clientId}` placeholder with your application's client ID from the application registration portal.
 
