@@ -12,7 +12,7 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. In the [Microsoft Azure portal](https://portal.azure.com), create a new web app by selecting **Create a resource > Web App**.
 
-    ![A screenshot of Web App resource selection](../../Images/azure-select-webapp.png)
+    ![A screenshot of Web App resource selection](../../Images/azure-select-webapp.PNG)
 
 1. Provide a unique name e.g. `WebhooksDemoApp`, choose the subscription, and provide a resource group.
 
@@ -22,11 +22,11 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. Select **OK** and then select **Create**. 
 
-    ![A Screenshot of creating a Web App resource](../../Images/azure-register-webapp.png)
+    ![A Screenshot of creating a Web App resource](../../Images/azure-register-webapp.PNG)
 
 1. Locate and copy the URL for later use.
 
-    ![A Screenshot of creating a Web App resource](../../Images/azure-copy-webapp-url.png)
+    ![A Screenshot of creating a Web App resource](../../Images/azure-copy-webapp-url.PNG)
 
 ## Register the application
 
@@ -50,7 +50,7 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. Select **Authentication** under **Manage**. Locate the **Implicit grant** section and enable **ID tokens**. Choose **Save**.
 
-    ![A screenshot of implicit grant](../../Images/aad-implicit-grant.PNG)
+    ![A screenshot of implicit grant](../../Images/aad-implicit-grant.png)
 
 1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
 
@@ -65,7 +65,7 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. Add a Redirect URL to use with your Microsoft Azure Web App (ex: `https://YOURWEBAPP.azurewebsites.net/`) and save your changes. For this sample, we will use the value we copied from the Azure Web App that we created in the previous stage, i.e. `https://webhooksdemoapp.azurewebsites.net`
 
-    ![A screenshot of adding redirect url](../../Images/azure-add-redirect-url.png)
+    ![A screenshot of adding redirect url](../../Images/azure-add-redirect-url.PNG)
 
 ## Clone the starting application
 
