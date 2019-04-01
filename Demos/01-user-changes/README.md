@@ -64,7 +64,7 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
     > **Note:** You will receive an error indicating a bad request. This is expected. You did not create a web application to listen for HTTP requests on localhost, Azure AD is telling you that it cannot redirect to the requested URL. Building a web application for admin consent is out of scope for this lab. However, the URL in the browser shows that Azure AD is telling you that admin consent has been granted via the `Consent/Set` in the URL bar.
 
-    ![Screenshot of error message.](../../Images/aad-admin-consent-redirect.png)
+    ![Screenshot of error message.](../../Images/aad-admin-consent-redirect.PNG)
 
 ## Create a new console application
 
