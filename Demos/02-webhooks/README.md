@@ -10,27 +10,62 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
 Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Microsoft Azure Web App or another web server. This lab uses **Microsoft Azure**.
 
-1. In the Microsoft Azure portal, create a new web app by selecting **+ Create a resource > Web + Mobile > Web App**.
+1. In the [Microsoft Azure portal](https://portal.azure.com), create a new web app by selecting **Create a resource > Web App**.
 
-1. Provide a unique name, choose the subscription, and provide a resource group.
+    ![A screenshot of Web App resource selection](../../Images/azure-select-webapp.png)
+
+1. Provide a unique name e.g. `WebhooksDemoApp`, choose the subscription, and provide a resource group.
 
 1. Choose **Windows** as the OS type.
 
 1. Edit the app service plan. Provide the name, location, and change the pricing tier to **Free**.
 
-1. Select **OK** and then select **Create**. Copy the URL for later use.
+1. Select **OK** and then select **Create**. 
+
+    ![A Screenshot of creating a Web App resource](../../Images/azure-register-webapp.png)
+
+1. Locate and copy the URL for later use.
+
+    ![A Screenshot of creating a Web App resource](../../Images/azure-copy-webapp-url.png)
 
 ## Register the application
 
-1. Visit the [Application Registration Portal](https://apps.dev.microsoft.com/). **Register** a new converged application, and copy the generated app ID for later use.
+1. Visit the [Azure Active Directory admin center](https://aad.portal.azure.com) and login using a **Work or School Account**.
 
-1. Select the **Generate new password** button and copy the app secret to use later as the client Secret.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-1. Select the **Add Platform** button. In the dialog box, choose **Web**.
+    ![A screenshot of the App registrations ](../../Images/aad-portal-app-registrations.png)
 
-1. Add a **Redirect URL** to use while debugging locally. The default setting for the Visual Studio project is `https://localhost:44326/`, if you use something else you need to change this value for your app registration.
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-1. Add a Redirect URL to use with your Microsoft Azure Web App (ex: `https://YOURWEBAPP.azurewebsites.net/`) and save your changes.
+    - Set a preferred **Name** e.g. `WebhooksDemo`.
+    - Set **Supported account types** to **Accounts in any organizational directory**.
+    - Under Redirect URI, set the first drop-down to Web and set the value to the `https://localhost:44326/`. This is the default setting for the Visual Studio project, if you use something else you need to change this value for your app registration.
+
+    ![A screenshot of the Register an application page](../../Images/aad-application-id-webhooks.PNG)
+
+1. Choose **Register**. On the **WebhooksDemo** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+
+    ![A screenshot of the Application Id](../../Images/aad-application-id-webhooks.PNG)
+
+1. Select **Authentication** under **Manage**. Locate the **Implicit grant** section and enable **ID tokens**. Choose **Save**.
+
+    ![A screenshot of implicit grant](../../Images/aad-implicit-grant.PNG)
+
+1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
+
+    ![A screenshot of the Add a client secret dialog](../../Images/aad-new-client-secret.png)
+
+1. Copy the client secret value before you leave this page. You will need it in the next step.
+
+    > [!IMPORTANT]
+    > This client secret is never shown again, so make sure you copy it now.
+
+    ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)
+
+1. Add a Redirect URL to use with your Microsoft Azure Web App (ex: `https://YOURWEBAPP.azurewebsites.net/`) and save your changes. For this sample, we will use the value we copied from the Azure Web App that we created in the previous stage, i.e. `https://webhooksdemoapp.azurewebsites.net`
+
+    ![A screenshot of adding redirect url](../../Images/azure-add-redirect-url.png)
 
 ## Clone the starting application
 
@@ -779,7 +814,7 @@ The application uses several new model classes for (de)serialization and for Raz
 
 >Note: Sometimes a version of local script change and one of the versions of the referenced file is not available.  If a version of a file from the `Scripts` folder is missing please remove it's reference.
 
-1. Microsoft Azure web apps makes it easy to debug a web application in the cloud as if it were running locally. In the Publish screen, click **Settings**, then click the **Settings** tab, and change the configuration from **Release** to **Debug**.
+1. Microsoft Azure web apps makes it easy to debug a web application in the cloud as if it were running locally. In the Publish screen, click **Configure > Settings** and change the configuration from **Release** to **Debug**.
 
 1. Select **Save**.
 

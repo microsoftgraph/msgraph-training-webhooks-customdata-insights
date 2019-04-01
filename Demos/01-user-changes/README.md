@@ -17,9 +17,13 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
     - Set a preferred **Name** e.g. `DeltaDemo`.
-    - Set **Supported account types** to **Accounts in any organizational directory**.    
+    - Set **Supported account types** to **Accounts in any organizational directory**.
 
     ![A screenshot of the Register an application page](../../Images/aad-register-an-app.PNG)
+
+1. Choose **Register**. On the **DeltaDemo** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+
+    ![A screenshot of Application Id](../../Images/aad-application-id-delta.PNG)
 
 1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
 
