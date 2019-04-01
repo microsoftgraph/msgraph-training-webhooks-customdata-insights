@@ -40,9 +40,9 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
     ![A screenshot of Request API permissions](../../Images/aad-request-api-permissions.PNG)
 
-1. Choose **Delegated permissions**. In the search box, type **User.ReadWrite.All** and select the first option from the list. Select **Add permissions**.
+1. Choose **Application permissions**. In the search box, type **User.ReadWrite.All** and select the first option from the list. Select **Add permissions**.
 
-    ![A screenshot of Delegated permissions](../../Images/aad-delegated-permissions.PNG)
+    ![A screenshot of Application permissions](../../Images/aad-application-permissions.PNG)
 
 1. The application requests an application permission with the `User.ReadWrite.All` scope. This permission requires administrative consent. Copy the following URL and replace the `{clientId}` placeholder with your application's client ID from the application registration portal.
 
@@ -62,9 +62,9 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
     > **Note:** There is approximately a 20 minute data replication delay between the time when an application is granted admin consent and when the data can successfully synchronize. For more information, read this [article](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2/issues/1).
 
-    > **Note:** You will receive an error indicating a bad request. This is expected. You did not create a web application to listen for HTTP requests on localhost, Azure AD is telling you that it cannot redirect to the requested URL. Building a web application for admin consent is out of scope for this lab. However, the URL in the browser shows that Azure AD is telling you that admin consent has been granted via the `admin_consent=True` in the URL bar.
+    > **Note:** You will receive an error indicating a bad request. This is expected. You did not create a web application to listen for HTTP requests on localhost, Azure AD is telling you that it cannot redirect to the requested URL. Building a web application for admin consent is out of scope for this lab. However, the URL in the browser shows that Azure AD is telling you that admin consent has been granted via the `Consent/Set` in the URL bar.
 
-    ![Screenshot of error message.](../../Images/04.png)
+    ![Screenshot of error message.](../../Images/aad-admin-consent-redirect.png)
 
 ## Create a new console application
 
@@ -74,11 +74,11 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
 1. Right-click the project and choose **Manage NuGet Packages**.
 
-1. Select the **Browse** tab in the **NuGet Package Manager** window. Ensure the **Include prerelease** checkbox is checked.
+1. Select the **Browse** tab in the **NuGet Package Manager** window.
 
 1. Search for and install the following NuGet packages:
     - `Microsoft.Graph`
-    - `Microsoft.Identity.Client version 1.1.4-preview00002`
+    - `Microsoft.Identity.Client version 2.7.1`
 
 1. Right-click the **References** node in the project and choose **Add Reference**.
 
