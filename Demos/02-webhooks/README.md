@@ -42,7 +42,7 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
     - Set a preferred **Name** e.g. `WebhooksDemo`.
     - Set **Supported account types** to **Accounts in any organizational directory**.
-    - Under Redirect URI, set the first drop-down to Web and set the value to the `https://localhost:44326/`. This is the default setting for the Visual Studio project, if you use something else you need to change this value for your app registration.
+    - Under **Redirect URI**, set the first drop-down to Web and set the value to the `https://localhost:44326/`. This is the default setting for the Visual Studio project, if you use something else you need to change this value for your app registration.
 
     ![A screenshot of the Register an application page](../../Images/aad-application-id-webhooks.PNG)
 

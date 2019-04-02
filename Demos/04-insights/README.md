@@ -4,17 +4,34 @@ This lab will show how to use the Insights resource with Microsoft Graph.
 
 ## Register the application
 
-1. Visit the [Application Registration Portal](https://apps.dev.microsoft.com) and register a new converged application. Copy the generated app ID for later use as the Client ID.
+1. Visit the [Azure Active Directory admin center](https://aad.portal.azure.com) and login using a **Work or School Account**.
 
-1. Add a new app secret by selecting the **Generate new password** button and copying the secret to use later as the Client Secret.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-1. Select the **Add Platform** button.
+    ![A screenshot of the App registrations ](../../Images/aad-portal-app-registrations.png)
 
-1. In the dialog box, choose **Web**.
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-1. Add a **Redirect URL** to use while debugging locally. The default setting for the Visual Studio project is `https://localhost:44326/`. If you use something else you need to change this value for your app registration.
+    - Set a preferred **Name** e.g. `InsightsDemo`.
+    - Set **Supported account types** to **Accounts in any organizational directory**.
+    - Under **Redirect URI**, set the first drop-down to Web and set the value to the `https://localhost:44326/`. This is the default setting for the Visual Studio project, if you use something else you need to change this value for your app registration. Choose **Register**
 
-1. Save all changes.
+    ![A screenshot of the Register an application page](../../Images/aad-application-id-insights.PNG)
+
+1. Select **Authentication** under **Manage**. Locate the **Implicit grant** section and enable **ID tokens**. Choose **Save**.
+
+    ![A screenshot of Implicit grant](../../Images/aad-implicit-grant.png)
+
+1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
+
+    ![A screenshot of the Add a client secret dialog](../../Images/aad-new-client-secret.png)
+
+1. Copy the client secret value before you leave this page. You will need it in the next step.
+
+    > [!IMPORTANT]
+    > This client secret is never shown again, so make sure you copy it now.
+
+    ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)
 
 ## Clone the starting application
 
