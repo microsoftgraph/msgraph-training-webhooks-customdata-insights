@@ -20,15 +20,15 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. Edit the app service plan. Provide the name, location, and change the pricing tier to **Free**.
 
-1. Select **OK** and then select **Create**. 
+1. Select **OK** and then select **Create**.
 
-    ![A Screenshot of creating a Web App resource](../../Images/azure-register-webapp.PNG)
+    ![A screenshot of creating a Web App resource](../../Images/azure-register-webapp.PNG)
 
 1. Locate and copy the URL of the newly created Web App for later use.
 
     ![A screenshot of locating the new Web App resource](../../Images/azure-locate-new-webapp.PNG)
 
-    ![A Screenshot of locating the new Web App url](../../Images/azure-copy-webapp-url.PNG)
+    ![A screenshot of locating the new Web App URL](../../Images/azure-copy-webapp-url.PNG)
 
 ## Register the application
 
@@ -60,14 +60,14 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. Copy the client secret value before you leave this page. You will need it in the next step.
 
-    > [!IMPORTANT]
+    > **IMPORTANT**:
     > This client secret is never shown again, so make sure you copy it now.
 
     ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)
 
 1. Add a Redirect URL to use with your Microsoft Azure Web App (ex: `https://YOURWEBAPP.azurewebsites.net/`) and save your changes. For this sample, we will use the value we copied from the Azure Web App that we created in the previous stage, i.e. `https://webhooksdemoapp.azurewebsites.net`
 
-    ![A screenshot of adding redirect url](../../Images/azure-add-redirect-url.PNG)
+    ![A screenshot of adding the redirect url](../../Images/azure-add-redirect-url.PNG)
 
 ## Clone the starting application
 

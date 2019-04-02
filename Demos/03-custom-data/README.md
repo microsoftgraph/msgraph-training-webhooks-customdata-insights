@@ -39,11 +39,11 @@ This demo requires an Office 365 administrative user.
 
 1. Choose **Delegated permissions**. In the search box, type **Directory.AccessAsUser.All** and select the first option from the list.
 
-    ![A screenshot of Application permissions](../../Images/aad-delegated-permissions-customdata-directory.PNG)
+    ![A screenshot of Application permissions (Directory)](../../Images/aad-delegated-permissions-customdata-directory.PNG)
 
 1. Again in the search box, type **Group.ReadWrite.All** and select the first option from the list. Select **Add permissions**.
 
-    ![A screenshot of Application permissions](../../Images/aad-delegated-permissions-customdata-group.PNG)
+    ![A screenshot of Application permissions (Group)](../../Images/aad-delegated-permissions-customdata-group.PNG)
 
 ## Create the application
 

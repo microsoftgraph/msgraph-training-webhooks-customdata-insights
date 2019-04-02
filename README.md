@@ -20,10 +20,14 @@ In this lab, you will walk through building different types of applications leve
 
 This module has been recorded and is available in the Office Development YouTube channel: [Microsoft Graph Capabilities](https://www.youtube.com/watch?v=_i1cpciR330)
 
+> **Note:**
+    > The video tutorial hasn't been updated to reflect the new Azure AD App registration experience and the use of `Microsoft.Identity 2.7.1` and `Microsoft.Graph 1.14.0` libraries.
+
 ## Contributors
 
 |        Roles         |                            Author(s)                             |
 | -------------------- | ---------------------------------------------------------------- |
+| Manuals Updates      | Irvine Sunday (Microsoft) @irvinesunday                          |
 | Lab Manuals / Slides | Andrew Connell (Microsoft MVP, Voitanos) @andrewconnell          |
 | QA                   | Julie Turner (Microsoft MVP, Sympraxis Consulting) @juliemturner |
 | Sponsor / Support    | Yina Arenas (Microsoft) @yina_arenas                             |
@@ -32,6 +36,7 @@ This module has been recorded and is available in the Office Development YouTube
 
 | Version |        Date        |                   Comments                   |
 | ------- | ------------------ | -------------------------------------------- |
+| 1.5     | April 02, 2019     | 2019Q2 content refresh                       |
 | 1.4     | December 12, 2018  | 2019Q2 content refresh                       |
 | 1.3     | September 20, 2018 | 2019Q1 content refresh                       |
 | 1.2     | May 25, 2018       | 2018Q4 content refresh & style guide updates |

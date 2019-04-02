@@ -14,7 +14,7 @@ This lab will show how to use the Insights resource with Microsoft Graph.
 
     - Set a preferred **Name** e.g. `InsightsDemo`.
     - Set **Supported account types** to **Accounts in any organizational directory**.
-    - Under **Redirect URI**, set the first drop-down to Web and set the value to the `https://localhost:44326/`. This is the default setting for the Visual Studio project, if you use something else you need to change this value for your app registration. Choose **Register**
+    - Under **Redirect URI**, set the first drop-down to Web and set the value to the `https://localhost:44326/`. This is the default setting for the Visual Studio project, if you use something else you need to change this value for your app registration. Choose **Register**.
 
     ![A screenshot of the Register an application page](../../Images/aad-application-id-insights.PNG)
 
@@ -28,7 +28,7 @@ This lab will show how to use the Insights resource with Microsoft Graph.
 
 1. Copy the client secret value before you leave this page. You will need it in the next step.
 
-    > [!IMPORTANT]
+    > **IMPORTANT**:
     > This client secret is never shown again, so make sure you copy it now.
 
     ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)

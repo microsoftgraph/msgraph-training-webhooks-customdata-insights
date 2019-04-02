@@ -31,7 +31,7 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
 1. Copy the client secret value before you leave this page. You will need it in the next step.
 
-    > [!IMPORTANT]
+    > **IMPORTANT**:
     > This client secret is never shown again, so make sure you copy it now.
 
     ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)
@@ -94,7 +94,7 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
     <appSettings>
         <add key="clientId" value="" />         <!-- ex: c7d838fa-8885-442d-889c-7d25567dd2c1 -->
         <add key="clientSecret" value="" />     <!-- ex: ehY7gK57f!29 -->
-        <add key="tenantId" value="" />         <!-- ex: contoso.onmicrosoft.com -->
+        <add key="tenantId" value="" />         <!-- ex: c8c6444c-4f5f-4053-a0d8-8c1431242e22 -->
         <add key="authorityFormat" value="https://login.microsoftonline.com/{0}/v2.0" />
         <add key="replyUri" value="https://localhost" />
     </appSettings>

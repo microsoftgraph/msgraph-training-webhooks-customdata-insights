@@ -27,11 +27,11 @@ This demo requires an Office 365 user.
 
 1. Still on the app page, select **Authentication**. Locate the section **Redirect URIs**. In the _Suggested Redirect URIs for public clients(mobile,desktop)_, check the second box so that the app can work with the MSAL libraries used in the application. (The box should contain the option _urn:ietf:wg:oauth:2.0:oob_). Choose **Save**.
 
-    ![A screenshot of Suggested Redirect URIs for Public Client](../../Images/aad-redirect-uri-public-client.PNG)
+    ![A screenshot of Suggested Redirect URIs for public clients](../../Images/aad-redirect-uri-public-client.PNG)
 
 1. From the app page, select **API permissions** > **Add a permission**.
 
-    ![A screenshot of Select API Permissions](../../Images/aad-api-permissions.PNG)
+    ![A screenshot of Select API permissions](../../Images/aad-api-permissions.PNG)
 
 1. Choose **Microsoft API** > **Microsoft Graph**.
 
@@ -49,9 +49,7 @@ This demo requires an Office 365 user.
 
 1. Right-click the project node and choose **Manage NuGet packages**.
 
-1. Select the Browse tab and ensure the **Include pre-release** checkbox is checked.
-
-1. Search for **Microsoft.Identity.Client** version `1.1.4-preview00002` and select **Install**.
+1. Select the Browse tab and search for **Microsoft.Identity.Client** version `2.7.1`. Select **Install**.
 
 1. Select the Browse tab and search for **Newtonsoft.Json**. Select **Install**.
 
