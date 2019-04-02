@@ -24,7 +24,7 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
     ![A Screenshot of creating a Web App resource](../../Images/azure-register-webapp.PNG)
 
-1. Locate and copy the URL for later use.
+1. Locate and copy the URL of the newly created Web App for later use.
 
     ![A screenshot of locating the new Web App resource](../../Images/azure-locate-new-webapp.PNG)
 

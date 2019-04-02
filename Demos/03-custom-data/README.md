@@ -8,15 +8,42 @@ This demo requires an Office 365 administrative user.
 
 ## Register the application
 
-1. Visit the [Application Registration Portal](https://apps.dev.microsoft.com) and register a new application.  Make sure you are using a Office 365 Work and School account.
+1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **Work or School Account**.
 
-1. Add a **Native** application platform.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-1. Add delegated permissions for **Directory.AccessAsUser.All** and **Group.ReadWrite.All**.
+    ![A screenshot of the App registrations ](../../Images/aad-portal-app-registrations.png)
 
-1. Select **Save**.
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-    ![Screenshot of Microsoft Graph Permissions page.](../../Images/13.png)
+    - Set a preferred **Name** e.g. `CustomData Demo`.
+    - Set **Supported account types** to **Accounts in any organizational directory**.
+
+    ![A screenshot of the Register an application page](../../Images/aad-register-an-app-customdata.PNG)
+
+1. Choose **Register**. On the **CustomData Demo** app page, select **Overview** and copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+
+    ![A screenshot of Application Id](../../Images/aad-application-id-customdata.PNG)
+
+1. Still on the app page, select **Authentication**. Locate the section **Redirect URIs**. In the _Suggested Redirect URIs for public clients(mobile,desktop)_, check the second box so that the app can work with the MSAL libraries used in the application. (The box should contain the option _urn:ietf:wg:oauth:2.0:oob_). Choose **Save**.
+
+    ![A screenshot of Suggested Redirect URIs for Public Client](../../Images/aad-redirect-uri-public-client.PNG)
+
+1. From the app page, select **API permissions** > **Add a permission**.
+
+    ![A screenshot of Select API Permissions](../../Images/aad-api-permissions.PNG)
+
+1. Choose **Microsoft API** > **Microsoft Graph**.
+
+    ![A screenshot of Request API permissions](../../Images/aad-request-api-permissions.PNG)
+
+1. Choose **Delegated permissions**. In the search box, type **Directory.AccessAsUser.All** and select the first option from the list.
+
+    ![A screenshot of Application permissions](../../Images/aad-application-permissions-customdata-directory.PNG)
+
+1. Again in the search box, type **Group.ReadWrite.All** and select the first option from the list. Select **Add permissions**.
+
+    ![A screenshot of Application permissions](../../Images/aad-application-permissions-customdata-group.PNG)
 
 ## Create the application
 
@@ -24,7 +51,7 @@ This demo requires an Office 365 administrative user.
 
 1. Right-click the project node and choose **Manage NuGet packages**.
 
-1. Select the Browse tab. Ensure the **Include pre-release** checkbox is checked, and search for **Microsoft.Identity.Client** version `1.1.4-preview00002` and select **Install**.
+1. Select the Browse tab. Search for **Microsoft.Identity.Client** version `2.7.1` and select **Install**.
 
 1. Select the **Browse** tab and search for **Newtonsoft.Json**. Select **Install**.
 
