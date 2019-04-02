@@ -26,7 +26,9 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. Locate and copy the URL for later use.
 
-    ![A Screenshot of creating a Web App resource](../../Images/azure-copy-webapp-url.PNG)
+    ![A screenshot of locating the new Web App resource](../../Images/azure-locate-new-webapp.PNG)
+
+    ![A Screenshot of locating the new Web App url](../../Images/azure-copy-webapp-url.PNG)
 
 ## Register the application
 
@@ -50,7 +52,7 @@ Webhooks in Microsoft Graph require a publicly accessible endpoint such as a Mic
 
 1. Select **Authentication** under **Manage**. Locate the **Implicit grant** section and enable **ID tokens**. Choose **Save**.
 
-    ![A screenshot of implicit grant](../../Images/aad-implicit-grant.png)
+    ![A screenshot of Implicit grant](../../Images/aad-implicit-grant.png)
 
 1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
 
