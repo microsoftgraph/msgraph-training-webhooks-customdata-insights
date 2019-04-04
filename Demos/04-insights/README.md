@@ -16,7 +16,11 @@ This lab will show how to use the Insights resource with Microsoft Graph.
     - Set **Supported account types** to **Accounts in any organizational directory**.
     - Under **Redirect URI**, set the first drop-down to Web and set the value to the `https://localhost:44326/`. This is the default setting for the Visual Studio project, if you use something else you need to change this value for your app registration. Choose **Register**.
 
-    ![A screenshot of the Register an application page](../../Images/aad-application-id-insights.PNG)
+    ![A screenshot of the Register an application page](../../Images/aad-register-an-app-insights.PNG)
+
+1. Choose **Register**. On the **InsightsDemo** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+
+    ![A screenshot of Application Id](../../Images/aad-application-id-insights.PNG)
 
 1. Select **Authentication** under **Manage**. Locate the **Implicit grant** section and enable **ID tokens**. Choose **Save**.
 
