@@ -178,3 +178,4 @@ FakesAssemblies/
 # Excluding unwanted files
 Teams/03 Bots/Completed Projects/Bot Application/.vs/
 .vscode/
+/.vs/VSWorkspaceState.json

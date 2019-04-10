@@ -8,13 +8,40 @@ This demo requires an Office 365 user.
 
 ## Register the application
 
-1. Visit the [Application Registration Portal](https://apps.dev.microsoft.com) and register a new application.
+1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **Work or School Account**.
 
-1. Add a **Native** application platform.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-1. Add delegated permissions for **Mail.Read**, **Calendars.Read** and **Contacts.Read**. Select **Save**.
+    ![A screenshot of the App registrations ](../../Images/aad-portal-app-registrations.png)
 
-    ![Screenshot of Microsoft Graph permissions.](../../Images/19.png)
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
+
+    - Set a preferred **Name** e.g. `BatchDemo`.
+    - Set **Supported account types** to **Accounts in any organizational directory**.
+
+    ![A screenshot of the Register an application page](../../Images/aad-register-an-app-batch.PNG)
+
+1. Choose **Register**. On the **BatchDemo** app page, select **Overview** and copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+
+    ![A screenshot of Application Id](../../Images/aad-application-id-batch.PNG)
+
+1. Still on the app page, select **Authentication**. Locate the section **Redirect URIs**. In the _Suggested Redirect URIs for public clients(mobile,desktop)_, check the second box so that the app can work with the MSAL libraries used in the application. (The box should contain the option _urn:ietf:wg:oauth:2.0:oob_). Choose **Save**.
+
+    ![A screenshot of Suggested Redirect URIs for public clients](../../Images/aad-redirect-uri-public-client.PNG)
+
+1. From the app page, select **API permissions** > **Add a permission**.
+
+    ![A screenshot of Select API permissions](../../Images/aad-api-permissions.PNG)
+
+1. Choose **Microsoft API** > **Microsoft Graph**.
+
+    ![A screenshot of Request API permissions](../../Images/aad-request-api-permissions.PNG)
+
+1. Choose **Delegated permissions**. In the search box, type **Mail.Read** and select the first option from the list.
+
+    ![A screenshot of Application permissions](../../Images/aad-delegated-permissions-batch.PNG)
+
+1. Repeat the above step (8) for the **Calendars.Read** and **Contacts.Read** permissions. Select **Add permissions**.
 
 ## Create the application
 
@@ -22,9 +49,7 @@ This demo requires an Office 365 user.
 
 1. Right-click the project node and choose **Manage NuGet packages**.
 
-1. Select the Browse tab and ensure the **Include pre-release** checkbox is checked.
-
-1. Search for **Microsoft.Identity.Client** version `1.1.4-preview00002` and select **Install**.
+1. Select the Browse tab and search for **Microsoft.Identity.Client** version `2.7.1`. Select **Install**.
 
 1. Select the Browse tab and search for **Newtonsoft.Json**. Select **Install**.
 

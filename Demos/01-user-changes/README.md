@@ -8,17 +8,45 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
 ## Register and grant consent to the application
 
-1. Visit the [Application Registration Portal](https://apps.dev.microsoft.com). Register a new converged application and copy the generated app ID for later use.
+1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **Work or School Account**.
 
-1. You will need to configure the application. Generate a new application password secret. Copy it for later use.
+1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations (Preview)** under **Manage**.
 
-1. Add a native application platform and copy the generated URL for later use.
+    ![A screenshot of the App registrations ](../../Images/aad-portal-app-registrations.png)
 
-1. Add an application permission for the `User.ReadWrite.All` scope.
+1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
-1. Save your changes.
+    - Set a preferred **Name** e.g. `DeltaDemo`.
+    - Set **Supported account types** to **Accounts in any organizational directory**.
 
-    ![Screenshot of Microsoft Graph permissions.](../../Images/01.png)
+    ![A screenshot of the Register an application page](../../Images/aad-register-an-app.PNG)
+
+1. Choose **Register**. On the **DeltaDemo** page, copy the value of the **Application (client) ID** and save it, you will need it in the next step.
+
+    ![A screenshot of Application Id](../../Images/aad-application-id-delta.PNG)
+
+1. Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description** and select one of the options for **Expires** and choose **Add**.
+
+    ![A screenshot of the Add a client secret dialog](../../Images/aad-new-client-secret.png)
+
+1. Copy the client secret value before you leave this page. You will need it in the next step.
+
+    > **IMPORTANT**:
+    > This client secret is never shown again, so make sure you copy it now.
+
+    ![A screenshot of the newly added client secret](../../Images/aad-copy-client-secret.png)
+
+1. From the **Manage** page, select **API permissions** > **Add a permission**.
+
+    ![A screenshot of Select API Permissions](../../Images/aad-api-permissions.PNG)
+
+1. Choose **Microsoft API** > **Microsoft Graph**.
+
+    ![A screenshot of Request API permissions](../../Images/aad-request-api-permissions.PNG)
+
+1. Choose **Application permissions**. In the search box, type **User.ReadWrite.All** and select the first option from the list. Select **Add permissions**.
+
+    ![A screenshot of Application permissions](../../Images/aad-application-permissions.PNG)
 
 1. The application requests an application permission with the `User.ReadWrite.All` scope. This permission requires administrative consent. Copy the following URL and replace the `{clientId}` placeholder with your application's client ID from the application registration portal.
 
@@ -38,9 +66,9 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
     > **Note:** There is approximately a 20 minute data replication delay between the time when an application is granted admin consent and when the data can successfully synchronize. For more information, read this [article](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2/issues/1).
 
-    > **Note:** You will receive an error indicating a bad request. This is expected. You did not create a web application to listen for HTTP requests on localhost, Azure AD is telling you that it cannot redirect to the requested URL. Building a web application for admin consent is out of scope for this lab. However, the URL in the browser shows that Azure AD is telling you that admin consent has been granted via the `admin_consent=True` in the URL bar.
+    > **Note:** You will receive an error indicating a bad request. This is expected. You did not create a web application to listen for HTTP requests on localhost, Azure AD is telling you that it cannot redirect to the requested URL. Building a web application for admin consent is out of scope for this lab. However, the URL in the browser shows that Azure AD is telling you that admin consent has been granted via the `Consent/Set` in the URL bar.
 
-    ![Screenshot of error message.](../../Images/04.png)
+    ![Screenshot of error message.](../../Images/aad-admin-consent-redirect.PNG)
 
 ## Create a new console application
 
@@ -50,11 +78,11 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
 
 1. Right-click the project and choose **Manage NuGet Packages**.
 
-1. Select the **Browse** tab in the **NuGet Package Manager** window. Ensure the **Include prerelease** checkbox is checked.
+1. Select the **Browse** tab in the **NuGet Package Manager** window.
 
 1. Search for and install the following NuGet packages:
     - `Microsoft.Graph`
-    - `Microsoft.Identity.Client version 1.1.4-preview00002`
+    - `Microsoft.Identity.Client version 2.7.1`
 
 1. Right-click the **References** node in the project and choose **Add Reference**.
 
@@ -66,7 +94,7 @@ This demo uses **Visual Studio 2017**. It also requires an **Microsoft Office 36
     <appSettings>
         <add key="clientId" value="" />         <!-- ex: c7d838fa-8885-442d-889c-7d25567dd2c1 -->
         <add key="clientSecret" value="" />     <!-- ex: ehY7gK57f!29 -->
-        <add key="tenantId" value="" />         <!-- ex: contoso.onmicrosoft.com -->
+        <add key="tenantId" value="" />         <!-- ex: c8c6444c-4f5f-4053-a0d8-8c1431242e22 -->
         <add key="authorityFormat" value="https://login.microsoftonline.com/{0}/v2.0" />
         <add key="replyUri" value="https://localhost" />
     </appSettings>
