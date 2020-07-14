@@ -1,4 +1,10 @@
-# Microsoft Graph: Microsoft Graph Capabilities
+# [ARCHIVED] Microsoft Graph: Microsoft Graph Capabilities
+
+## IMPORTANT
+
+**This project is being archived. As part of the archival process, we're closing all open issues and pull requests.**
+
+**You can continue to use this sample "as-is", but it won't be maintained moving forward. We apologize for any inconvenience.**
 
 This module walks through building applications using various capabilities of Microsoft Graph.
 
